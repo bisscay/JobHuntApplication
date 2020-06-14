@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Freelance Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton action="#{freelancerManagedBean.getProfile()}" value="Profile"></h:commandButton>
+            <h2>Welcome #{freelancerManagedBean.name} with balance #{freelancerManagedBean.currentBalance}</h2>
+            
+            <h:commandButton action="#{loginManagedBean.logout()}" value="Logout"></h:commandButton>
+            
+            <h:commandButton action="#{freelancerManagedBean.editProfile()}" value="Edit Profile"></h:commandButton>
+
+            <h2>List of Available Jobs</h2>
+
+            <h:dataTable value="#{freelancerManagedBean.availableJob()}" var="job">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{job.jobid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                        #{job.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Keyword</f:facet>
+                        #{job.keyword}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Description</f:facet>
+                        #{job.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Payment</f:facet>
+                        #{job.token}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Provider ID</f:facet>
+                        #{job.providerid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Job State</f:facet>
+                        #{job.state}
+                </h:column>
+                <h:column>
+                    <h:commandButton action="#{jobentryManagedBean.addJobentry(job)}" value="Place Request"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton action="#{jobentryManagedBean.removeJobentry(job)}" value="Revoke Request"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <h2>Search Jobs by Keyword</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                Keyword:
+                <h:inputText autocomplete="off" value="#{freelancerManagedBean.keyword}"/>
+                <h:commandButton value="Search" action="#{freelancerManagedBean.keywordSearch()}"/>
+            </h:panelGrid>
+
+            <h:dataTable value="#{freelancerManagedBean.keyList}" var="job">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{job.jobid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                        #{job.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Keyword</f:facet>
+                        #{job.keyword}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Description</f:facet>
+                        #{job.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Payment</f:facet>
+                        #{job.token}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Provider ID</f:facet>
+                        #{job.providerid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Job State</f:facet>
+                        #{job.state}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <h2>Search Jobs by Unique ID</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                Keyword:
+                <h:inputText autocomplete="off" value="#{freelancerManagedBean.uniqueJobID}"/>
+                <h:commandButton value="Search" action="#{freelancerManagedBean.uniqueIDSearch()}"/>
+            </h:panelGrid>
+
+            <h:dataTable value="#{freelancerManagedBean.uniqueJob}" var="job">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{job.jobid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                        #{job.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Keyword</f:facet>
+                        #{job.keyword}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Description</f:facet>
+                        #{job.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Payment</f:facet>
+                        #{job.token}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Provider ID</f:facet>
+                        #{job.providerid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Job State</f:facet>
+                        #{job.state}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

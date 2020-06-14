@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:panelGrid columns="2">
+            
+            <h:outputText value="Requesting Client Type"/>
+            <h:outputText value='#{header["User-Agent"]}'/>
+
+            <h:outputText value="Locale"/>
+            <h:outputText value="#{view.locale}"/>
+
+            <h:outputText value="Session ID"/>
+            <h:outputText value="#{session.id}"/>
+
+        </h:panelGrid>
+    </cc:implementation>
+</html>
