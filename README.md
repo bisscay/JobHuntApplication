@@ -1,4 +1,4 @@
-# JobHuntApplication (JavaEE)
+# JobHuntApplication
 An online job marketplace, think Freelancer, Upwork or Gigster. 
 
 Job requester posts their job descriptions to the marketplace and registered freelancer can offer to undertake the job. 
